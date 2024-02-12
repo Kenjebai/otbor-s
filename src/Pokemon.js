@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Pokemon(){
     const[list, setList] = useState([])
@@ -8,10 +8,13 @@ export default function Pokemon(){
         setList(data.results)
         console.log(data.results);
     }
+    useEffect(() => {
+        addList()
+    })
     return(
         <div>
             <h2>Pokemon</h2>
-            <button onClick={addList}>add</button>
+            {/* <button onClick={addList}>add</button> */}
                 {list.map((el) => (
                     <div className="list">
                         <p>{el.name}</p>
